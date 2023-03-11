@@ -1,22 +1,19 @@
+#Sub Array sum
 
-#? print whether the given no. is odd or not 
-# also take input from user add a msg
-# Use != operator
-n = int(input("Enter a num: "))
-if n % 2 != 0:
-    print("Num is odd")
-else:
-    print("Num is even")
-    
+arr = [1,2,3,4]
+target = 5
+s = 0
+start = 0
+flag = False
 
-#? print whether the string input from user is same or not 
-#? print "Yes" if true and print "No" if false
-
-name1 = input("Enter a name : ")
-name2 = input("Enter a name2 :")
-
-if name1 == name2:
-    print("Yes")
-else:
-    print("No")
-    print("Noob")
+for i in range(len(arr)):
+    s += arr[i]
+    while s > target:
+        s -= arr[start]
+        start += 1
+    if s == target:
+        flag = True
+        print(arr[start : i+1])
+        break
+if flag == False:
+    print("Cannot find the subArray")
